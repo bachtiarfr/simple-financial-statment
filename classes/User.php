@@ -47,8 +47,8 @@ class User
                     $recipientData['transactions'][] = [
                         'time' => date('Y-m-d H:i:s'),
                         'type' => 'Transfer',
-                        'debit' => $amount,
-                        'credit' => '',
+                        'debit' => '',
+                        'credit' => $amount,
                         'balance' => $recipientData['balance'],
                         'description' => "Transfer from " . $this->username,
                     ];
