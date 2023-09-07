@@ -22,7 +22,7 @@ foreach ($users as $username => $userData) {
     file_put_contents($userDataFile, json_encode($userData));
 }
 
-// Redirect to the login page after 3 seconds
-header("refresh:3;url=login.php");
+// Redirect to the login page after 2 seconds
+header("refresh:2;url=login.php");
 echo "User data files created successfully. Redirecting to login...";
 ?>

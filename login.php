@@ -3,6 +3,7 @@ session_start();
 
 // Directory to store user data files
 $userDataDirectory = 'internal/user_data/';
+require_once 'classes/User.php';
 
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
@@ -18,7 +19,12 @@ if (isset($_POST['login'])) {
             $_SESSION['user'] = $username;
             $_SESSION['balance'] = $userData['balance'];
             $_SESSION['transactions'] = $userData['transactions'];
-            $_SESSION['transactions'] = $userData['transactions'];
+
+            $user = new User($username);
+           
+            $_SESSION['user'] = serialize($user);
+            $_SESSION['username'] = $username;
+
             header('Location: index.php');
             exit;
         }
